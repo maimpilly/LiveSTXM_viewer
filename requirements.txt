@@ -1,0 +1,6 @@
+pyzmq
+numpy
+pyqtgraph
+PyQt6
+numba
+pyinstaller
