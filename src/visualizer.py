@@ -128,6 +128,16 @@ class VisualizerWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Live STXM Viewer")
         self.setGeometry(100, 100, 1200, 600)
 
+        if getattr(sys, 'frozen', False):
+            # If run as .exe, look in the temp folder
+            icon_path = os.path.join(sys._MEIPASS, 'assets', 'icon.ico')
+        else:
+            # If run as script, look in the assets folder
+            icon_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'icon.ico')
+
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QtGui.QIcon(icon_path))
+
         # Data Storage
         self.stxm_map_data = None
         self.scan_shape = None
@@ -294,7 +304,7 @@ class VisualizerWindow(QtWidgets.QMainWindow):
     def check_activity(self):
         """Checks if we have received data recently."""
         # 15 second timeout
-        if (time.time() - self.last_activity_time > 15.0) and not self.is_in_standby:
+        if (time.time() - self.last_activity_time > 25.0) and not self.is_in_standby:
             self.enter_standby()
 
     def enter_standby(self):
