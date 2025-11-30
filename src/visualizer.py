@@ -304,7 +304,7 @@ class VisualizerWindow(QtWidgets.QMainWindow):
     def check_activity(self):
         """Checks if we have received data recently."""
         # 15 second timeout
-        if (time.time() - self.last_activity_time > 25.0) and not self.is_in_standby:
+        if (time.time() - self.last_activity_time > 15.0) and not self.is_in_standby:
             self.enter_standby()
 
     def enter_standby(self):
