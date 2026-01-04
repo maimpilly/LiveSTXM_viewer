@@ -4,7 +4,7 @@ A **real-time visualization application** for Scanning Transmission X-ray Micros
 
 At the beginning of each scan, the experiment control software emits **scan metadata** via 0MQ (start/stop positions, step size, exposure, detector frame shape). The detector, in addition to file-writing, is also streaming **recorded data** via 0MQ.
 
-## ✨ Features
+## Features
 
 The application uses a **dual-view interface** that allows simultaneous tracking of the detector frame and the STXM map. 
 
@@ -35,7 +35,7 @@ The UI is split into two sides:
     * `.json`: The corresponding scan metadata (for documentation).
     * `.png`: A visual snapshot of the final map (for quick review).
 
-### System Working 🎥
+### System Working
 
 Here is the system in action during a live scan:
 
